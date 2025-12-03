@@ -1,12 +1,12 @@
 :root {
-  --bg: #f5efe5;
-  --bg-alt: #ede4d7;
-  --surface: #ffffff;
-  --accent: #d65f2d;
-  --accent-dark: #b1491b;
-  --text: #1b242a;
-  --muted: #5e6c75;
-  --shadow: rgba(26, 31, 36, 0.12);
+  --bg: #0d47a1; /* Primary blue background */
+  --bg-alt: #1565c0; /* Slightly lighter blue */
+  --surface: #1e88e5; /* Surface card blue */
+  --accent: #82b1ff; /* Light accent blue */
+  --accent-dark: #448aff;
+  --text: #ffffff; /* White text */
+  --muted: #bbdefb; /* Muted light blue */
+  --shadow: rgba(0, 0, 0, 0.3);
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
@@ -45,7 +45,7 @@ button {
 
 .hero {
   min-height: 100vh;
-  background: radial-gradient(circle at top, #ffe3b9 10%, var(--bg));
+  background: radial-gradient(circle at top, #42a5f5 10%, var(--bg));
   padding: 1.5rem clamp(1rem, 4vw, 5rem) 4rem;
 }
 
@@ -100,6 +100,7 @@ button {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.1;
   margin-bottom: 1rem;
+  color: var(--text);
 }
 
 .hero-actions {
@@ -111,7 +112,7 @@ button {
 
 .primary {
   background: var(--accent);
-  color: #1a1a1a;
+  color: #0d1b2a;
   padding: 0.9rem 1.75rem;
 }
 
@@ -131,7 +132,7 @@ button {
 .section {
   padding: clamp(3rem, 8vw, 6rem) clamp(1rem, 6vw, 5rem);
   background: var(--bg);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .section:nth-of-type(even) {
@@ -189,20 +190,13 @@ button {
   gap: 1.5rem;
 }
 
-.about-grid article {
+.about-grid article,
+.card {
   background: var(--surface);
   padding: 1.5rem;
   border-radius: 1.25rem;
   color: var(--text);
   box-shadow: 0 20px 50px -30px var(--shadow);
-}
-
-.card {
-  background: var(--surface);
-  padding: 1.5rem;
-  border-radius: 1.25rem;
-  box-shadow: 0 30px 60px -40px var(--shadow);
-  color: var(--text);
 }
 
 .amenities,
@@ -232,7 +226,7 @@ button {
 }
 
 .location-details {
-  background: rgba(214, 95, 45, 0.08);
+  background: rgba(255, 255, 255, 0.1);
   padding: 1rem 1.5rem;
   border-radius: 1rem;
   color: var(--muted);
@@ -266,8 +260,8 @@ select,
 textarea {
   padding: 0.65rem 0.9rem;
   border-radius: 0.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(20, 40, 45, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: var(--text);
   font-size: 1rem;
 }
@@ -290,7 +284,7 @@ textarea {
   width: 220px;
   height: 220px;
   object-fit: cover;
-  background: rgba(214, 95, 45, 0.08);
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 1rem;
 }
 
@@ -317,7 +311,7 @@ textarea {
   padding: 2rem 1rem;
   background: var(--bg-alt);
   color: var(--muted);
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .modal {
@@ -348,93 +342,4 @@ textarea {
 .modal-close {
   position: absolute;
   top: 1rem;
-  right: 1rem;
-  background: transparent;
-  color: var(--text);
-  font-size: 1.5rem;
-}
-
-.modal-list {
-  max-height: 240px;
-  overflow-y: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1rem;
-  display: grid;
-  gap: 0.75rem;
-}
-
-.admin-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.75rem 1rem;
-  border-radius: 0.85rem;
-  background: rgba(255, 255, 255, 0.05);
-  font-size: 0.9rem;
-}
-
-.admin-actions {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.admin-actions button {
-  border-radius: 0.6rem;
-  padding: 0.3rem 0.75rem;
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text);
-}
-
-@media (max-width: 900px) {
-  .nav-links {
-    position: absolute;
-    top: 70px;
-    right: 1rem;
-    flex-direction: column;
-    background: rgba(8, 17, 19, 0.95);
-    padding: 1.25rem;
-    border-radius: 1rem;
-    display: none;
-  }
-
-  .nav-links[aria-expanded="true"] {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-
-  .hero {
-    padding-bottom: 3rem;
-  }
-
-  .form-actions {
-    flex-direction: column;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-}
-
-@media print {
-  body {
-    background: #fff;
-    color: #000;
-  }
-  nav,
-  .hero,
-  .section,
-  .footer,
-  .modal {
-    background: transparent;
-    color: #000;
-    box-shadow: none;
-  }
-  button {
-    display: none;
-  }
-}
-
+  right
